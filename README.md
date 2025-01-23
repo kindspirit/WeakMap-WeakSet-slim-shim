@@ -16,5 +16,9 @@ Delete has a non-standard second `shallow` parameter which indicates to stop sea
 
     weakMap['delete'](key, 1)// don't delete beyond the first match
 
+Since the methods are added to the prototype, and not the object itself, you can also do operations that way:
+
+    WeakMap.prototype.set.call(weakMap, key, value);// Throws if weakMap is not a WeakMap instance
+
 Remember it's always better to add any information associated with an object directly to the object itself. This shim is only useful when that isn't possible.
   It's a
