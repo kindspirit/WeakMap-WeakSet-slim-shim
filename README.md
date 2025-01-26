@@ -16,8 +16,8 @@ Note that `delete` is an ES3 reserved word and must be quoted to work in most ES
 
 Search times are O(n) for plain objects. But the most recently searched key is always moved to the start of the linked list. That helps to reduce search times by allowing unused keys to go to the end. That also means that an insertion of a key immediately after searching that same key will result in an overwrite since it can do that while maintaining O(1) insertion time.
 
-Delete has a non-standard second `shallow` parameter which indicates to stop searching after the first mapping or instance of `key` which is useful only when the data structure contains no duplicates.
+Delete has an optional non-standard second boolean parameter which when truthy indicates to stop searching after the first mapping or instance of `key` which is useful only when the data structure contains no duplicates.
 
-    weakMap['delete'](key, 1)// don't delete beyond the first match
+    weakMap['delete'](key, true)// don't delete beyond the first match
 
 Remember it's always better to add any information associated with an object directly to the object itself. This shim is only useful when that isn't possible.
