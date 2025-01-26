@@ -1,12 +1,12 @@
-This is a __WeakSet__ and __WeakMap__ shim for ES3 and ES5 browsers such as IE5-10 that do not already support `WeakMap` natively.
+This is a __WeakSet__ and __WeakMap__ shim for ES3 and ES5 browsers such as IE5-10 that do not already support `WeakMap` natively with O(1) insertion time on set() and add() operations, and O(n) search time on get() has() and delete() operations.
 
-This shim is intended for code that cannot tolerate adding properties to inserted objects which alas means O(n) search times for most objects. However insertion time is always O(1) and search time is also O(1) for objects of type `String`, `Number`, `Date`, `RegExp`, and `Function` in all browsers, and `Error` in IE8+.
+This shim is intended for code that cannot tolerate adding properties to inserted objects which alas means O(n) search times for most objects. However search time is reduced to O(1) for objects of type `String`, `Number`, `Date`, `RegExp`, and `Function` in all browsers, and `Error` in IE8+.
 
 For example if every new object is created with `Object(Math.random())` each inserted object will be a unique Number wrapper. That uniqueness will give them O(1) time complexity on all operations without adding any unwanted properties to them.
 
 It is designed to closely mimic real WeakSets and WeakMaps as much as possible given the tools available to old browsers. Like a real WeakMap or WeakSet, one can do operations from the prototype:
 
-    WeakMap.prototype.set.call(weakMap, key, value);// Throws if weakMap is not a WeakMap instance or key is not an object
+    WeakMap.prototype.set.call(weakMap, key, value);// Throws if not a WeakMap instance or key is not an object
 
 To instantiate use `new WeakSet(iterable)` or `new WeakMap(iterable)`. The iterable argument is optional and only requires a separate iterables shim if it is not an array. The constructor also supports no or nullish argument.
 
