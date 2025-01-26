@@ -2,7 +2,7 @@ This is a __WeakSet__ and __WeakMap__ shim for ES3 and ES5 browsers such as IE5-
 
 For example if every new object is created with `Object(Math.random())` each inserted object will be a unique Number wrapper. That uniqueness will give them O(1) time complexity on all operations without adding any unwanted properties to them.
 
-It is designed to closely mimic real WeakSets and WeakMaps as much as possible given the tools available to old browsers. Like a real WeakMap or WeakSet, one can do operations from the prototype:
+It is designed to closely mimic real WeakSets and WeakMaps as much as possible given the tools available to old browsers while keeping its minified file size under 2K. Like a real WeakMap or WeakSet, one can do operations from the prototype:
 
     WeakMap.prototype.set.call(weakMap, key, value);// Throws if not a WeakMap instance or key is not an object
 
