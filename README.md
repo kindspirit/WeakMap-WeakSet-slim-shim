@@ -20,4 +20,4 @@ Delete has an optional non-standard second boolean parameter which when truthy i
 
     weakMap['delete'](key, true)// don't delete beyond the first match
 
-Remember it's always better to add any information associated with an object directly to the object itself. This shim is only useful when that isn't possible.
+Remember O(n) search times causes poor performance. That's why it's always better to add any information associated with an object directly to the object itself. This shim is only useful when that isn't possible.
