@@ -6,6 +6,8 @@ This repository contains both a WeakMap/WeakSet monkey patch for modern JS (IE11
 
 This monkey patches `WeakMap` and `WeakSet` constructors so that they can accept iterables and unregistered symbols (E.g. `Symbol.keyFor(symbol)==undefined`). All prototype methods are also monkey patched. This also fixes non-standard behaviors notorious of Firefox. It works in strict mode and non-browser environments. This is intended for environments where `WeakMap` is already natively defined which gives all operations O(1) time. Polyfills `WeakSet` and all prototypal methods where not already native.
 
+Small file size <2K
+
 ## Shim
 
 The `WeakSet` and `WeakMap` shim for ES3 and ES5 browsers such as IE5-10 that do not already support `WeakMap` natively. It has O(1) insertion time on set() and add() operations, and O(n) search time on get() has() and delete() operations. However search time is reduced to O(1) for objects of type `String`, `Number`, `Date`, `RegExp`, and `Function` in all browsers, and `Error` in IE8+.
