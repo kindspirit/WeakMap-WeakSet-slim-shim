@@ -10,7 +10,7 @@ Small file size <2K
 
 ## Shim
 
-The `WeakSet` and `WeakMap` shim for ES3 and ES5 browsers such as IE5-10 that do not already support `WeakMap` natively. It has O(1) insertion time on set() and add() operations, and O(n) search time on get() has() and delete() operations. However search time is reduced to O(1) for objects of type `String`, `Number`, `Date`, `RegExp`, and `Function` in all browsers, and `Error` in IE8+.
+This `WeakSet` and `WeakMap` shim is for ES3 and ES5 browsers such as IE5-10 that do not already support `WeakMap` natively. It has O(1) insertion time on set() and add() operations, and O(n) search time on get() has() and delete() operations. However search time is reduced to O(1) for objects of type `String`, `Number`, `Date`, `RegExp`, and `Function` in all browsers, and `Error` in IE8+.
 
 For example if every new object is created with `Object(Math.random())` each inserted object will be a unique Number wrapper. That uniqueness will give them O(1) time complexity on all operations without adding any unwanted properties to them.
 
