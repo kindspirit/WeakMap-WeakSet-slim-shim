@@ -20,7 +20,7 @@ It is designed to closely mimic real WeakSets and WeakMaps as much as possible g
 
     WeakMap.prototype.set.call(weakMap, key, value);// Throws if not a WeakMap instance or key is not an object
 
-To instantiate use `new WeakSet(iterable)` or `new WeakMap(iterable)`. The iterable argument is optional and only requires a separate iterables shim if it is not an array. The constructor also supports no or nullish argument.
+To instantiate use `new WeakSet(iterable)` or `new WeakMap(iterable)`. The iterable argument is optional and can be either an array-like with indexed elements or an iterable i.e. an object where [Symbol.iterator]() returns an iterator. The constructor also supports no or nullish argument.
 
 Note that `delete` is an ES3 reserved word and must be quoted to work in most ES3 browsers such as IE 6 thru IE 8.
 
